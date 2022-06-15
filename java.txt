@@ -1,0 +1,141 @@
+
+package programmingcontest;
+import java.util.Scanner;
+public class ProgrammingContest
+{
+	public static void main(String[] args) 
+	{	
+		currencyManager();
+	}
+	
+	
+	public static void currencyManager()
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int currencyCount = sc.nextInt();
+		int [] currency = new int[currencyCount];
+		
+		if (currencyCount >= 3 )
+		{
+			for (int i = 0; i < currencyCount; i++) 
+			{
+				currency[i] = sc.nextInt();
+			}
+			int targetVal = sc.nextInt();
+			int count = 0;
+			for (int i = 0; i < currencyCount; i++)
+			{
+				if (targetVal % currency[i] == 0)
+				{
+					count++;
+				}
+//				else 
+//				{
+//					
+//				}
+			}
+			
+			
+			
+		System.out.println(count);
+
+		int j;
+		int []primeFactors = new int[currencyCount * 3];
+		for (int i = 0; i < currencyCount; i++) 
+		{
+			for(
+				
+				j = 2; i < currency[i]; j++) 
+			{
+				if(currency[i] % j == 0) 
+				{
+					System.out.println(j);
+					primeFactors[j] = currency[i] / j;
+				}
+			}
+			if(primeFactors[j] > 2)
+			{
+				System.out.println(primeFactors[j]);
+			}	
+		}
+
+//		for (int i = 0; i < primeFactors.length; i++) 
+//		{
+//			System.out.println(primeFactors[i]);
+//		}
+			
+			
+			/*
+			System.out.print("Coins: ");
+			for (int i = 0; i < currencyCount; i++)
+			{
+				System.out.print(currency[i] + " ");
+			}
+			System.out.println("\nTotal: " + targetVal);
+			*/
+			
+			
+		}
+		else 
+		{
+			System.out.println("Invalid value.");
+		}		
+		
+	}
+
+	
+	public static void newNumberingSystem()
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		String originalVal = sc.next();
+		int a = 0;
+		int sum = 0;
+		int index = originalVal.length();
+		if (originalVal.length() >= 1 && originalVal.length() <=10 ) 
+		{
+			for (int i = 0; i < originalVal.length() ; i++) 
+			{
+				switch(originalVal.charAt(i))
+				{
+				case '%' -> a = 0;
+				case ')' -> a = 1;
+				case '~' -> a = 2;
+				case '@' -> a = 3;
+				case '?' -> a = 4;
+				case '\\' -> a = 5; 
+				case '$' -> a = -1;
+				}
+				index--;
+			sum += a * Math.pow(6,index);
+			}
+		System.out.println(sum);	
+		}
+	}
+	
+	
+	public static void carRace()
+	{
+
+		Scanner sc = new Scanner(System.in);
+		
+		int speed = sc.nextInt();
+		int sum = 0;
+		if (speed >= 150 && speed <= 500) 
+		{
+			sum = speed % 10;
+			sum += speed /10 % 10;
+			sum += speed / 100 % 10;
+		}
+		if (speed % sum == 0)
+		{
+			System.out.println("Winner");
+		}
+		else
+		{
+			System.out.println("Not Winner");
+		}
+}
+}
+
